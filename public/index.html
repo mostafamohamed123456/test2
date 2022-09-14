@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="./website-icon.svg">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <script src="https://kit.fontawesome.com/91adc17bd4.js" crossorigin="anonymous"></script>
+  </head>
+  <body onload="autoTypingMethod()">
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+  <script>
+    let helloMsg = "hello!,";
+    let introduceMsg ="my name is mostafa mohamed,";
+    let introduceTwoMsg ="i'm front-end web development.";
+    let timing = 100;
+    function autoTypingMethod(){
+                let helloMessage = document.querySelector("#hello-msg");
+                    let introduceMessage = document.querySelector(".introduce-msg");
+                    let introduceTwoMessage = document.querySelector(".introduce-two-msg");
+                    let counter = 0;
+                    let autoOne = setInterval(()=>{
+                    helloMessage.textContent += helloMsg[counter];
+                    counter++;
+                        if(counter >= helloMsg.length){
+                            clearInterval(autoOne)
+                            counter = 0;
+                            let autoTwo = setInterval(()=>{
+                                introduceMessage.textContent += introduceMsg[counter];
+                                counter++;
+                                if(counter >= introduceMsg.length){
+                                clearInterval(autoTwo)
+                                counter = 0;
+                                let autoThree = setInterval(()=>{
+                                    introduceTwoMessage.textContent += introduceTwoMsg[counter];
+                                    counter++;
+                                    if(counter >= introduceTwoMsg.length){
+                                        clearInterval(autoThree)
+                                    }
+                                },timing)
+                            }
+                            },timing)
+                        }
+                    },timing)
+                
+            }
+  </script>
+</html>

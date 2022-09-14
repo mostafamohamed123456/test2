@@ -1,0 +1,37 @@
+@use "./mixins" as *;
+nav{
+    padding: 10px;
+    display:flex;
+    justify-content:space-evenly;
+    background:#333;
+    @include boxShadow;
+    z-index: 3;
+    position: fixed;
+    width: 100%;
+    h2{
+        color:#F4EBD0;
+        cursor: pointer;
+        text-transform:uppercase;
+        letter-spacing:3px;
+    }
+    .navBar-list{
+        list-style:none;
+        padding-top:5px;
+        & li {
+            display:inline-block;
+            margin-right:20px;
+        a {
+            text-decoration:none;
+            text-transform:uppercase;
+            font-weight:bold;
+            cursor: pointer;
+            color:#F4EBD0;
+            letter-spacing: 3px;
+            transition:all .6s linear;
+            &:hover{
+                color:#ffc107
+            }
+        }
+        }
+    }
+}

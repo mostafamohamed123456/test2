@@ -1,0 +1,161 @@
+@use "../documents/mixins" as *;
+body{
+    background:#EEE;
+}
+.skills-page{
+    position: relative;
+    top: 180px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    & .skills-header{
+        font-weight:bold;
+        font-family:Arial ,sans-serif;
+        font-size:50px;
+        @include uppercaseText;
+        width: 310.33px;
+        margin: 0 auto;
+        color:#444;
+        position:relative;
+        margin-bottom:30px;
+        text-shadow: 3px 3px 6px #666666, -3px -3px 6px #666666;
+        text-align: center;
+        & span{
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: #ffc107;
+            color:#EEE
+        }
+        &::before{
+            content: "";
+            width: 100%;
+            height: 2px;
+            background: #666;
+            position: absolute;
+            top: 50%;
+            right: -110%;
+        }
+    }
+    & > {
+        div{
+            display: flex;
+            flex-direction: column;
+            & > {
+                div{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 30px 300px;
+                    position: relative;;
+                    & label{
+                        float: left;
+                        @include progressBarLabels;
+                        & i {
+                            @include progressBarLabelsIcons
+                        }
+                    }
+                    @for $i from 1 through 5{
+                        .parent-#{$i}{
+                            width:400px;
+                            position: relative;
+                            right: 0;
+                            margin-right:-150px ;
+                            & .progress-parent{
+                                @include progressBarParentStyle;
+                            }
+                            & .progress-child{
+                                @include progressBarChildStyle;
+                            }
+                        }
+                    }
+                    .parent-1 .progress-child{
+                            width: 95%;
+                    }
+                    .parent-2 .progress-child{
+                            width: 85%;
+                    }
+                    .parent-3 .progress-child{
+                            width: 80%;
+                    }
+                    .parent-4 .progress-child{
+                            width: 85%;
+                    }
+                    .parent-5 .progress-child{
+                            width: 60%;
+                    }
+                }
+            }
+        }
+    }
+    & .services{
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+        margin: 50px 0;
+        & .services-header{
+            font-weight:bold;
+            font-family:Arial ,sans-serif;
+            font-size:50px;
+            @include uppercaseText;
+            color:#444;
+            position:relative;
+            margin-bottom:30px;
+            text-shadow: 3px 3px 6px #666666, -3px -3px 6px #666666;
+            &::before{
+                content: "";
+                width: 100%;
+                height: 2px;
+                background: #666;
+                position: absolute;
+                top: 50%;
+                right: -110%;
+            }
+            & span{
+                -webkit-text-stroke-color:#ffc107;
+                -webkit-text-stroke-width:2px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color:#EEE;
+            }
+        }
+        & .container{
+            display:flex;
+            justify-content:center;
+            gap:65px;
+            & > div{
+                width:200px;
+                height:200px;
+                cursor:pointer;
+                position:relative;
+                -webkit-box-shadow:3px 3px 6px #666666, -3px -3px 6px #666666;
+                -moz-box-shadow:3px 3px 6px #666666, -3px -3px 6px #666666;
+                -o-box-shadow:3px 3px 6px #666666, -3px -3px 6px #666666;
+                box-shadow:3px 3px 6px #666666, -3px -3px 6px #666666;
+                -webkit-transition:all .4s linear;
+                -moz-transition:all .4s linear;
+                -o-transition:all .4s linear;
+                transition:all .4s linear;
+                border-radius:5px;
+                text-align:center;
+                overflow:hidden;
+                &:hover{
+                    transform:scale(1.1)
+                }
+            }  
+            & div > img{
+                width:100px;
+                height:100px;
+                display:block;
+                margin:10px auto 15px;
+            }
+            & div > span{
+                background:#ffc107;
+                font-family:Arial, sans-serif;
+                font-weight:bold;
+                font-size:18px;
+                color:#FFF;
+                display:block;
+                height: calc(100% / 2);
+                padding: 25px 10px;
+                @include uppercaseText;
+            }
+        }
+    }
+}
